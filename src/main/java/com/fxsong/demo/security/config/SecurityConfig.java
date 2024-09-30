@@ -1,6 +1,6 @@
 package com.fxsong.demo.security.config;
 
-import com.fxsong.demo.security.auth.AuthUserService;
+import com.fxsong.demo.security.auth.UserDetailsServiceImpl;
 import com.fxsong.demo.security.user.UserService;
 import com.fxsong.demo.security.user.role.UserRoleService;
 import jakarta.servlet.DispatcherType;
@@ -54,7 +54,7 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(UserService userService, UserRoleService userRoleService) {
-        return new AuthUserService(userService, userRoleService);
+        return new UserDetailsServiceImpl(userService, userRoleService);
     }
 
 //    @Bean

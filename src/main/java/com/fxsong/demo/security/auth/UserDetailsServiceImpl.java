@@ -6,12 +6,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class AuthUserService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserService userService;
     private final UserRoleService userRoleService;
 
-    public AuthUserService(UserService userService, UserRoleService userRoleService) {
+    public UserDetailsServiceImpl(UserService userService, UserRoleService userRoleService) {
         this.userService = userService;
         this.userRoleService = userRoleService;
     }
@@ -20,6 +20,6 @@ public class AuthUserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String soeid) throws UsernameNotFoundException {
         var user = userService.findBySoeid(soeid);
         var userRole = userRoleService.findBySoeId(soeid);
-        return new AuthUserDetails(user.getSoeid(), user.getPassword(), null);
+        return new UserDetailsImpl(user.getSoeid(), user.getPassword(), null);
     }
 }
