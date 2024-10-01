@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 class HomeController {
     @GetMapping
     String index() {
-        var context = SecurityContextHolder.getContext();
+        log.debug("user Soeid: {}", AuthUser.getSoeid());
         return "/index.html";
     }
 
