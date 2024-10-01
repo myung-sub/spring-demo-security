@@ -44,27 +44,29 @@ public class SecurityConfig {
                 .logout(auth -> auth
                         .logoutUrl("/auth/logout")
                         .logoutSuccessUrl("/")
+                        .clearAuthentication(true)
+                        .deleteCookies("JSESSIONID")
                 )
 
                 .sessionManagement(session -> session
-                        .invalidSessionUrl("/auth/login")
+                        .invalidSessionUrl("/")
                         .maximumSessions(1)  // 최대 허용 세션수
-                        .maxSessionsPreventsLogin(true) // true 이면 중복 로그인시 기존 세션을 끊음, false 이면 중복 로그인을 막음
+                        .maxSessionsPreventsLogin(false) // true 이면 중복 로그인시 기존 세션을 끊음, false 이면 중복 로그인을 막음
                 )
 
-                .sessionManagement(session -> session
-                        .sessionFixation().newSession() // 세션 고정 공격 방어
-                )
+//                .sessionManagement(session -> session
+//                        .sessionFixation().newSession() // 세션 고정 공격 방어
+//                )
 
                 // test 용도로 csrf 를 disable
 //                .csrf(AbstractHttpConfigurer::disable)
-                .csrf(csrf -> csrf
-                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                        .ignoringRequestMatchers(
-                                new AntPathRequestMatcher("/instances/**", HttpMethod.POST.toString()),
-                                new AntPathRequestMatcher("/instances/**", HttpMethod.DELETE.toString()),
-                                new AntPathRequestMatcher("/actuator/**"))
-                )
+//                .csrf(csrf -> csrf
+//                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                        .ignoringRequestMatchers(
+//                                new AntPathRequestMatcher("/instances/**", HttpMethod.POST.toString()),
+//                                new AntPathRequestMatcher("/instances/**", HttpMethod.DELETE.toString()),
+//                                new AntPathRequestMatcher("/actuator/**"))
+//                )
         ;
 
         return http.build();

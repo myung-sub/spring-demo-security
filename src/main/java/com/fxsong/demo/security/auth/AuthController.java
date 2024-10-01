@@ -15,17 +15,7 @@ public class AuthController {
 
     @GetMapping("/login")
     String getLoginPage() {
-        return "/login.html";
-    }
-
-    @GetMapping("/logout")
-    String logout(HttpServletRequest request, HttpServletResponse response) {
-        var authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null) {
-            log.debug("User {} logged out", authentication.getName());
-            new SecurityContextLogoutHandler().logout(request, response, authentication);
-        }
-        return "redirect:/";
+        return "login.jsp";
     }
 
 }
