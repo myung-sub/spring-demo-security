@@ -20,11 +20,19 @@ public class DataInitRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("===================================");
 
-        var user = User.builder().soeid("asdf").name("Alice").password("asdf").build();
+        var user = User.builder().soeid("user").name("user name").password("user").build();
         userService.create(user);
 
-        var userRole = UserRole.builder().soeid("ms88160").role("ROLE_USER").build();
+        var userRole = UserRole.builder().soeid("asdf").role("ROLE_USER").build();
         userRoleService.create(userRole);
+
+        var admin = User.builder().soeid("admin").name("admin name").password("admin").build();
+        userService.create(admin);
+
+        var adminRole = UserRole.builder().soeid("admin").role("ROLE_ADMIN").build();
+        var adminRole2 = UserRole.builder().soeid("admin").role("ROLE_USER").build();
+        userRoleService.create(adminRole);
+        userRoleService.create(adminRole2);
 
     }
 }

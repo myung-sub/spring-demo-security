@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 class HomeController {
     @GetMapping
     String index() {
-        return "Hello Security App";
+        return "/index.html";
     }
 
     @GetMapping("/home")
