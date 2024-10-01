@@ -4,8 +4,8 @@ import com.fxsong.demo.security.user.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 public class AuthUser {
-    public static String getSoeid() {
-        return getUser().getSoeid();
+    public static String getEmpNo() {
+        return getUser().getEmpNo();
     }
 
     public static String getName() {

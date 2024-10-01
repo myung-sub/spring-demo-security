@@ -11,6 +11,6 @@ import org.springframework.data.relational.core.mapping.Table;
 public class UserRole {
     @Id
     private Long id;
-    private String soeid;
+    private String empNo;
     private String role;
 }

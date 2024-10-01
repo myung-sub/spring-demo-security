@@ -23,11 +23,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String soeid) throws UsernameNotFoundException {
-        var user = userService.findBySoeid(soeid);
-        var userRoles = userRoleService.findBySoeId(soeid);
+    public UserDetails loadUserByUsername(String empNo) throws UsernameNotFoundException {
+        var user = userService.findByEmpNo(empNo);
+        var userRoles = userRoleService.findByEmpNo(empNo);
         Collection<GrantedAuthority> authorities = getAuthorities(userRoles);
-        return new UserDetailsImpl(user.getSoeid(), user.getPassword(), authorities, user);
+        return new UserDetailsImpl(user.getEmpNo(), user.getPassword(), authorities, user);
     }
 
     private Collection<GrantedAuthority> getAuthorities(List<UserRole> userRoles) {

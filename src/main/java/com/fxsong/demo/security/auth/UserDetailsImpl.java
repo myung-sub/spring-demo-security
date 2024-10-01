@@ -17,8 +17,8 @@ public class UserDetailsImpl implements UserDetails {
     @Getter
     private final User user;
 
-    public UserDetailsImpl(String soeId, String password, Collection<? extends GrantedAuthority> authorities, User user) {
-        this.userName = soeId;
+    public UserDetailsImpl(String empNo, String password, Collection<? extends GrantedAuthority> authorities, User user) {
+        this.userName = empNo;
         this.password = password;
         this.authorities = authorities;
         this.user = user;

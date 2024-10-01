@@ -15,7 +15,7 @@ public class UserRoleService extends CrudServiceImpl<UserRole, Long> {
         this.repo = repo;
     }
 
-    public List<UserRole> findBySoeId(String soeId) {
-        return repo.findBySoeid(soeId);
+    public List<UserRole> findByEmpNo(String empNo) {
+        return repo.findByEmpNo(empNo);
     }
 }

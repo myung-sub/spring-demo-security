@@ -22,8 +22,8 @@ public class UserService extends CrudServiceImpl<User, Long> {
         return super.create(entity);
     }
 
-    public User findBySoeid(String soeid) {
-        return ((UserRepository) repo).findBySoeid(soeid);
+    public User findByEmpNo(String empNo) {
+        return ((UserRepository) repo).findByEmpNo(empNo);
     }
 
 }
