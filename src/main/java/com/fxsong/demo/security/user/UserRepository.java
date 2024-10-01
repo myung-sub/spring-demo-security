@@ -2,6 +2,8 @@ package com.fxsong.demo.security.user;
 
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends CrudRepository<User, Long> {
-    User findByEmpNo(String empNo);
+    Optional<User> findByEmpNo(String empNo);
 }

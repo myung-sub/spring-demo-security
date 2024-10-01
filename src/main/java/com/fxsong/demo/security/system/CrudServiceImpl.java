@@ -27,7 +27,7 @@ public class CrudServiceImpl<T, ID> implements CrudService<T, ID> {
 
     @Override
     public T findById(ID id) {
-        return repo.findById(id).orElse(null);
+        return repo.findById(id).orElseThrow(() -> new RuntimeException("Entity not found"));
     }
 
 }

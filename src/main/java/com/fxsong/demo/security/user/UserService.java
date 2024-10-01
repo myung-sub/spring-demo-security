@@ -23,7 +23,7 @@ public class UserService extends CrudServiceImpl<User, Long> {
     }
 
     public User findByEmpNo(String empNo) {
-        return ((UserRepository) repo).findByEmpNo(empNo);
+        return ((UserRepository) repo).findByEmpNo(empNo).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
 }

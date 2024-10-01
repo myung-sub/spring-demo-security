@@ -15,7 +15,7 @@ class UserServiceTest {
     @Test
     void findByEmpNo() {
         // when
-        var user = service.findByEmpNo("ms88160");
+        var user = service.findByEmpNo("user");
 
         // then
         assertNotNull(user);
