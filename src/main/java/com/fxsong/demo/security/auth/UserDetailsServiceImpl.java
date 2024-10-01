@@ -27,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         var user = userService.findBySoeid(soeid);
         var userRoles = userRoleService.findBySoeId(soeid);
         Collection<GrantedAuthority> authorities = getAuthorities(userRoles);
-        return new UserDetailsImpl(user.getSoeid(), user.getPassword(), authorities);
+        return new UserDetailsImpl(user.getSoeid(), user.getPassword(), authorities, user);
     }
 
     private Collection<GrantedAuthority> getAuthorities(List<UserRole> userRoles) {
